@@ -9,6 +9,9 @@
       * {
         margin: 0px;
       }
+      body {
+        font-size: 14px;
+      }
       header {
         /* background: #eeeeeecf; */
         height: 60px;
@@ -38,7 +41,7 @@
       nav {
         /* display: inline-block; */
         float: left;
-        width: 420px;
+        width: 520px;
       }
       .clear-fix {
         clear: both;
@@ -57,6 +60,59 @@
         height: 50px;
         margin: 5px;
       }
+      .nav-link {
+        text-decoration: none;
+        padding: 5px 10px;
+        color: #ff9800;
+        border: 1px solid #fab18f;
+        border-radius: 5px;
+        width: 55px;
+        display: inline-block;
+        text-align: center;
+      }
+      .nav-link:hover {
+        background-color: #fdcfb9;
+        font-weight: 600;
+      }
+
+      /*index css*/
+      .intro-box {
+        padding-top: 60px;
+        text-align: center;
+        padding-bottom: 60px;
+        background-color: #282a35;
+      }
+      .intro-title {
+        font-size: 56px;
+        color: white;
+      }
+      .intro-body {
+        color: #ffc0c7;
+        font-weight: 700;
+        margin-top: 30px !important;
+        font-size: 1.8rem;
+      }
+      .popular-courses {
+        padding: 2rem 5px;
+        background-color: #d9eee1;
+        margin-top: -5px;
+      }
+      .popular-course-title {
+        text-align: center;
+      }
+
+      .course-box {
+        width: 24%;
+        border: 2px solid gray;
+        float: left;
+        box-sizing: border-box;
+        margin: 5px;
+        height: 310px;
+      }
+
+      .course-image img {
+        width: 100%;
+      }
     </style>
   </head>
   <body>
@@ -68,28 +124,86 @@
         </div>
         <nav>
           <ul>
-            <li><a href="./home.html">Home</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
-            <li><a href="#">Article</a></li>
+            <li><a href="./home.html" class="nav-link">Home</a></li>
+            <li><a href="#" class="nav-link">Services</a></li>
+            <li><a href="#" class="nav-link">About</a></li>
+            <li><a href="#" class="nav-link">Contact</a></li>
+            <li><a href="#" class="nav-link">Article</a></li>
           </ul>
         </nav>
       </header>
       <div class="clear-fix"></div>
       <main>
-        <ul>
-          <li>list item 1</li>
-          <li>list item 2</li>
-          <li>list item 3</li>
-          <li>list item 4</li>
-          <li>list item 5</li>
-          <li>list item 6</li>
-          <li>list item 7</li>
-          <li>list item 8</li>
-          <li>list item 9</li>
-          <li>list item 10</li>
-        </ul>
+        <div class="intro-box">
+          <div class="intro-title">
+            <h1>Learn to Code</h1>
+          </div>
+          <div class="intro-body">
+            <p>With the world's largest web developer site.</p>
+          </div>
+          <div class="intro-search">
+            <input type="text" name="search" /><button>Search</button>
+          </div>
+        </div>
+        <svg
+          style="background-color: #d9eee1"
+          width="100%"
+          height="70"
+          viewBox="0 0 100 100"
+          preserveAspectRatio="none"
+        >
+          <path
+            id="wavepath"
+            d="M0,0  L110,0C35,150 35,0 0,100z"
+            fill="#282A35"
+          ></path>
+        </svg>
+        <div class="popular-courses">
+          <h2 class="popular-course-title">Popular Courses</h2>
+          <div class="courses-box">
+            <div class="course-box">
+              <div class="course-image">
+                <img src="./assets/images/mern.png" alt="" />
+              </div>
+
+              <h3>MERN Stack</h3>
+              <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                Dolorum, reprehenderit?
+              </p>
+            </div>
+            <div class="course-box">
+              <div class="course-image">
+                <img src="./assets/images/Mean.png" alt="" />
+              </div>
+              <h3>MEAN Stack</h3>
+              <p>
+                Tempore itaque quo sapiente facilis. Quasi laboriosam voluptate
+                ab quam.
+              </p>
+            </div>
+            <div class="course-box">
+              <div class="course-image">
+                <img src="./assets/images/java.png" alt="" />
+              </div>
+              <h3>Java</h3>
+              <p>
+                Error quaerat eius temporibus culpa enim. Nihil illo dicta
+                ratione.
+              </p>
+            </div>
+            <div class="course-box">
+              <div class="course-image">
+                <img src="./assets/images/dot-net.png" alt="" />
+              </div>
+              <h3>Dot Net</h3>
+              <p>
+                Ad maiores accusamus qui possimus, labore mollitia ipsam
+                expedita quas.
+              </p>
+            </div>
+          </div>
+        </div>
       </main>
       <footer>&copy; All right reserved for entertainment.</footer>
     </div>
