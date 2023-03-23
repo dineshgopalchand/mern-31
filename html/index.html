@@ -108,10 +108,21 @@
         box-sizing: border-box;
         margin: 5px;
         height: 310px;
+        padding: 5px;
       }
-
+      .course-image {
+        text-align: center;
+      }
       .course-image img {
-        width: 100%;
+        height: 141px;
+        max-width: 100%;
+      }
+      .course-box .course-title {
+        font-size: 1.8em;
+        text-align: center;
+      }
+      .course-box .course-detail {
+        text-align: justify;
       }
     </style>
   </head>
@@ -166,43 +177,52 @@
                 <img src="./assets/images/mern.png" alt="" />
               </div>
 
-              <h3>MERN Stack</h3>
-              <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Dolorum, reprehenderit?
-              </p>
+              <h3 class="course-title">MERN Stack</h3>
+              <div class="course-detail">
+                <p>
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                  Dolorum, reprehenderit?
+                </p>
+              </div>
             </div>
             <div class="course-box">
               <div class="course-image">
                 <img src="./assets/images/Mean.png" alt="" />
               </div>
-              <h3>MEAN Stack</h3>
-              <p>
-                Tempore itaque quo sapiente facilis. Quasi laboriosam voluptate
-                ab quam.
-              </p>
+              <h3 class="course-title">MEAN Stack</h3>
+              <div class="course-detail">
+                <p>
+                  Tempore itaque quo sapiente facilis. Quasi laboriosam
+                  voluptate ab quam.
+                </p>
+              </div>
             </div>
             <div class="course-box">
               <div class="course-image">
                 <img src="./assets/images/java.png" alt="" />
               </div>
-              <h3>Java</h3>
-              <p>
-                Error quaerat eius temporibus culpa enim. Nihil illo dicta
-                ratione.
-              </p>
+              <h3 class="course-title">Java</h3>
+              <div class="course-detail">
+                <p>
+                  Error quaerat eius temporibus culpa enim. Nihil illo dicta
+                  ratione.
+                </p>
+              </div>
             </div>
             <div class="course-box">
               <div class="course-image">
                 <img src="./assets/images/dot-net.png" alt="" />
               </div>
-              <h3>Dot Net</h3>
-              <p>
-                Ad maiores accusamus qui possimus, labore mollitia ipsam
-                expedita quas.
-              </p>
+              <h3 class="course-title">Dot Net</h3>
+              <div class="course-detail">
+                <p>
+                  Ad maiores accusamus qui possimus, labore mollitia ipsam
+                  expedita quas.
+                </p>
+              </div>
             </div>
           </div>
+          <div class="clear-fix"></div>
         </div>
       </main>
       <footer>&copy; All right reserved for entertainment.</footer>
