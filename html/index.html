@@ -74,6 +74,9 @@
         background-color: #fdcfb9;
         font-weight: 600;
       }
+      .text-center {
+        text-align: center;
+      }
 
       /*index css*/
       .intro-box {
@@ -109,6 +112,7 @@
         margin: 5px;
         height: 310px;
         padding: 5px;
+        background-color: white;
       }
       .course-image {
         text-align: center;
@@ -123,6 +127,41 @@
       }
       .course-box .course-detail {
         text-align: justify;
+      }
+      .experties-block {
+        margin-bottom: 10px;
+        background-color: #d9eee1;
+      }
+      .expert-block {
+        width: 24%;
+        cursor: default;
+        float: left;
+        margin-left: 7px;
+        padding: 10px;
+        box-sizing: border-box;
+      }
+      .expert-block:not(:first-child) {
+        /* .expert-block:not(:nth-child(1)) { */
+        border: 1px solid gray;
+        border-radius: 10px;
+      }
+      .expert-block:not(:first-child):hover {
+        box-shadow: 4px 4px 2px red;
+      }
+      /* .expert-block:nth-child(2),.expert-block:nth-child(4){
+        background-color: pink;
+      } */
+      .expert-block:nth-child(2n) {
+        background-color: lightgreen;
+      }
+      .expert-block:nth-child(3) {
+        background-color: cyan;
+      }
+      .title-border{
+        background-color: blue;
+        width: 50px;
+        height: 6px;
+        margin-left: 10px;
       }
     </style>
   </head>
@@ -220,6 +259,52 @@
                   expedita quas.
                 </p>
               </div>
+            </div>
+          </div>
+          <div class="clear-fix"></div>
+        </div>
+        <div class="experties-block">
+          <div class="expert-block">
+            <h2>Our Expertise</h2>
+            <div class="title-border"></div>
+          </div>
+          <div class="expert-block">
+            <div class="img-block text-center">
+              <img src="./assets/images/book.png" alt="book icon" />
+            </div>
+            <h3 class="block-title text-center">Classroom Training</h3>
+            <div class="block-details">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat,
+                sunt! Quas minus ipsam unde ad. Sapiente repudiandae ipsam
+                adipisci iste.
+              </p>
+            </div>
+          </div>
+          <div class="expert-block">
+            <div class="img-block text-center">
+              <img src="./assets/images/lappy.png" alt="book icon" />
+            </div>
+            <h3 class="block-title text-center">Online Training</h3>
+            <div class="block-details">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat,
+                sunt! Quas minus ipsam unde ad. Sapiente repudiandae ipsam
+                adipisci iste.
+              </p>
+            </div>
+          </div>
+          <div class="expert-block">
+            <div class="img-block text-center">
+              <img src="./assets/images/user-img.png" alt="book icon" />
+            </div>
+            <h3 class="block-title text-center">Corporate Training</h3>
+            <div class="block-details">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat,
+                sunt! Quas minus ipsam unde ad. Sapiente repudiandae ipsam
+                adipisci iste.
+              </p>
             </div>
           </div>
           <div class="clear-fix"></div>
