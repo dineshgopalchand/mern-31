@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact - SDLC training</title>
+    <link rel="stylesheet" href="./styles/common.css" />
+    <link rel="stylesheet" href="./styles/contact.css" />
+  </head>
+  <body>
+    <div class="main-body">
+      <header>
+        <!-- <div class="logo">SDLC Training</div> -->
+        <div class="logo">
+          <a href="./index.html">
+            <img src="./assets/images/sdlc-logo.png" alt="SDLC logo" />
+          </a>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="./index.html" class="nav-link">Home</a></li>
+            <li><a href="#" class="nav-link">Services</a></li>
+            <li><a href="#" class="nav-link">About</a></li>
+            <li><a href="./contact.html" class="nav-link">Contact</a></li>
+            <li><a href="#" class="nav-link">Article</a></li>
+          </ul>
+        </nav>
+      </header>
+      <div class="clear-fix"></div>
+      <main>
+        <h2>Contact Page</h2>
+        <form action="./contact.html" method="post">
+          <div class="form-group">
+            <label for="fname">First Name</label>
+            <input type="text" name="firstname" placeholder="First Name" id="fname"  required maxlength="20"/>
+          </div>
+          <div class="form-group">
+            <label for="lname">Last Name : </label>
+            <input type="text" name="lastname" placeholder="Last Name" id="lname" />
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number: </label>
+            <input type="tel" name="phone" placeholder="Enter Phone Number" id="phone"/>
+          </div>
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <input type="text" name="phone" placeholder="Subject" id="subject" />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" name="emailid" placeholder="Enter Email-ID" id="email" />
+          </div>
+          <div class="form-group">
+            <label for="details">Description</label>
+            <textarea name="details" id="details"  rows="10" placeholder="Enter Description"></textarea>
+          </div>
+          <div class="form-group">
+            <!-- <input type="submit" value="Submit"> -->
+            <!-- <input type="reset" value="Reset Form"> -->
+            <button>Submit</button>
+          </div>
+        </form>
+
+
+        
+      </main>
+      <footer>&copy; All right reserved for entertainment.</footer>
+    </div>
+  </body>
+</html>
