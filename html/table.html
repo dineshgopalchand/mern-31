@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Demo Time Table - SDLC training</title>
+    <link rel="stylesheet" href="./styles/common.css" />
+    <style>
+      table,
+      th,
+      td {
+        border: 1px solid red;
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        padding: 4px 3px;
+      }
+      table {
+        width: 100%;
+      }
+      table tbody tr:nth-child(2n){
+        background-color: antiquewhite;
+      }
+      table tbody tr:nth-child(2n+1){
+        background-color:rgb(160, 171, 169);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main-body">
+      <header>
+        <!-- <div class="logo">SDLC Training</div> -->
+        <div class="logo">
+          <a href="./index.html">
+            <img src="./assets/images/sdlc-logo.png" alt="SDLC logo" />
+          </a>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="./index.html" class="nav-link">Home</a></li>
+            <li><a href="#" class="nav-link">Services</a></li>
+            <li><a href="#" class="nav-link">About</a></li>
+            <li><a href="./contact.html" class="nav-link">Contact</a></li>
+            <li><a href="#" class="nav-link">Article</a></li>
+          </ul>
+        </nav>
+      </header>
+      <div class="clear-fix"></div>
+      <main>
+        <div class="container">
+          <h2>Demo - Time Table</h2>
+
+          <table>
+            <thead>
+              <tr>
+                <th>Sl no</th>
+                <th>Course</th>
+                <th>Trainer</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Demo Type</th>
+              </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>1.</td>
+              <td>MERN</td>
+              <td rowspan="2">Dinesh</td>
+              <td>30-03-2023</td>
+              <td>7:00pm</td>
+              <td>Online</td>
+            </tr>
+            <tr>
+              <td>2.</td>
+              <td>MEAN</td>
+              <td>31-03-2023</td>
+              <td>7:00pm</td>
+              <td>Online</td>
+            </tr>
+            
+            <tr>
+              <td>3.</td>
+              <td>JAVA</td>
+              <td>Ajay</td>
+              <td>30-03-2023</td>
+              <td>7:00pm</td>
+              <td>Classroom</td>
+            </tr>
+            <tr>
+              <td>4.</td>
+              <td>.Net</td>
+              <td>Gopal</td>
+              <td>30-03-2023</td>
+              <td>7:00pm</td>
+              <td>Online</td>
+            </tr>
+            <tr>
+              <td>5.</td>
+              <td>Python</td>
+              <td>Chand</td>
+              <td>31-03-2023</td>
+              <td>8:00pm</td>
+              <td>Classroom</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </main>
+      <footer>&copy; All right reserved for entertainment.</footer>
+    </div>
+  </body>
+</html>
