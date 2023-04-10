@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>javascript</title>
+    <script>
+      var dateVal = new Date();
+      var fullYear = dateVal.getFullYear();
+      console.log(dateVal);
+      console.log(fullYear);
+
+      var newDateVal = dateVal;
+      console.log(newDateVal.getDay());
+      // console.log(newDateVal.getDate()+30);
+      // // +30
+      newDateVal.setDate(newDateVal.getDate() + 330);
+      console.log(newDateVal.getDate());
+      console.log(newDateVal);
+      console.warn(newDateVal.getDay());
+      console.error(newDateVal.getDay());
+    </script>
+  </head>
+  <body>
+    <h2>Javascript introduction</h2>
+  </body>
+</html>
