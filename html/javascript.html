@@ -8,21 +8,37 @@
     <script>
       var dateVal = new Date();
       var fullYear = dateVal.getFullYear();
-      console.log(dateVal);
-      console.log(fullYear);
+      // console.log(dateVal);
+      // console.log(fullYear);
 
       var newDateVal = dateVal;
       console.log(newDateVal.getDay());
       // console.log(newDateVal.getDate()+30);
       // // +30
       newDateVal.setDate(newDateVal.getDate() + 330);
-      console.log(newDateVal.getDate());
-      console.log(newDateVal);
-      console.warn(newDateVal.getDay());
-      console.error(newDateVal.getDay());
+      // console.log(newDateVal.getDate());
+      // console.log(newDateVal);
+      // console.warn(newDateVal.getDay());
+      // console.error(newDateVal.getDay());
+      function showDate() {
+        document.getElementById("dateElement1").innerHTML = new Date();
+      }
+
+      var name_value;
+      var nameValue; //- camel case (recommended)
+      var _name1;
+      var $name;
     </script>
   </head>
   <body>
     <h2>Javascript introduction</h2>
+    <button
+      onclick="document.getElementById('dateElement').innerHTML= new Date()"
+    >
+      Show Date1
+    </button>
+    <button onclick="showDate()">Show Date2</button>
+    <p>Today date is(1) : <span id="dateElement">...</span></p>
+    <p>Today date is(2) : <span id="dateElement1">...</span></p>
   </body>
 </html>
