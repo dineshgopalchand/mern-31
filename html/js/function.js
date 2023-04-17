@@ -1,30 +1,55 @@
 console.log("from function js file");
 
-// var name1 = "Dinesh";
-// console.log("My name is " + name1);
-// var name2 = "Gopal";
-// console.log("My name is " + name2);
-
-function log() {
+// function logFn() {
+//   console.log("I am inside name Log function");
+// }
+const logFn = function () {
   console.log("I am inside name Log function");
-}
-log();
+};
+logFn();
 
-function nameLog(name) {
+// function nameLog(name) {
+//   console.log("My name : " + name.toUpperCase());
+// }
+const nameLog = function (name) {
   console.log("My name : " + name.toUpperCase());
-}
+};
+nameLog("santosh");
 
-var name1 = "Dinesh";
-nameLog(name1);
-var name2 = "Gopal";
-nameLog(name2);
+// function showFullName(fname, lname) {
+//   // console.log("My name : " + fname + ' '+lname);
+//   // console.log('inside showfullNameFunction')
+//   return `My name ${fname} ${lname}`;
+// }
+const showFullName = function (fname, lname) {
+  // console.log("My name : " + fname + ' '+lname);
+  // console.log('inside showfullNameFunction')
+  return `My name ${fname} ${lname}`;
+};
 
-function add(num1, num2) {
-  return num1 + num2;
-}
+// showFullName('dinesh','gopal');
+let fullName = showFullName("dinesh", "Chand");
+console.log(fullName);
+
+// var name1 = "Dinesh";
+// nameLog(name1);
+// var name2 = "Gopal";
+// nameLog(name2);
+
+// function add(num1, num2) {
+//   return num1 + num2;
+// }
+
+// var result=add(13322,32433);
+// console.log(result);
+// var result=add(3433,78678);
+// console.log(result);
 
 
-var result=add(13322,32433);
-console.log(result);
-var result=add(3433,78678);
-console.log(result);
+// self invoking function
+(function () {
+  console.log("I am inside anonymous function");
+})();
+(function (name) {
+  console.log("I am inside anonymous function " + name);
+})('Ramesh');
