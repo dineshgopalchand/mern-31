@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student details</title>
+    <link
+      rel="stylesheet"
+      href="./node_modules/bootstrap/dist/css/bootstrap.css"
+    />
+    <script>
+      const students = [
+        {
+          First: "Mark",
+          Last: "otto",
+          Handle: "@fb",
+        },
+        {
+          First: "Tom",
+          Last: "Monkey",
+          Handle: "@twitter",
+        },
+        {
+          First: "Jerry",
+          Last: "tim",
+          Handle: "@insta",
+        },
+        {
+          First: "Rob",
+          Last: "bonus",
+          Handle: "@fb",
+        },
+      ];
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Sample table</h2>
+      <table class="table">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+          </tr>
+        </thead>
+        <tbody id="studentDetails"></tbody>
+      </table>
+    </div>
+    <script>
+      const detailBlock = document.getElementById("studentDetails");
+      //   let trValue = "";
+      //   for (let index = 0; index < students.length; index++) {
+      //     trValue += `
+      //         <tr>
+      //       <th scope="row">${index + 1}</th>
+      //       <td>${students[index]["First"]}</td>
+      //       <td>${students[index]["Last"]}</td>
+      //       <td>${students[index]["Handle"]}</td>
+      //     </tr>
+      //         `;
+      //   }
+      //   detailBlock.innerHTML = trValue;
+
+      //   detailBlock.innerHTML = students
+      //     .map((student, index) => {
+      //       return `<tr>
+      //       <th scope="row">${index + 1}</th>
+      //       <td>${student["First"]}</td>
+      //       <td>${student["Last"]}</td>
+      //       <td>${student["Handle"]}</td>
+      //     </tr>`;
+      //     })
+      //     .join("");
+      students.forEach((element, index) => {
+        const trElement = document.createElement("tr");
+        const slElement = document.createElement("th");
+        slElement.setAttribute("scope", "row");
+        slElement.innerText = index + 1;
+        trElement.appendChild(slElement);
+        const firstNameEle = document.createElement("td");
+        firstNameEle.innerText = element.First;
+        trElement.appendChild(firstNameEle);
+        const lastNameEle = document.createElement("td");
+        lastNameEle.innerText = element.Last;
+        trElement.appendChild(lastNameEle);
+        const handleEle = document.createElement("td");
+        handleEle.innerText = element.Handle;
+        trElement.appendChild(handleEle);
+        // console.log(trElement);
+        detailBlock.appendChild(trElement);
+      });
+    </script>
+  </body>
+</html>
