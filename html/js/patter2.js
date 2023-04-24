@@ -11,6 +11,7 @@ for(lineCount=1;lineCount<=totalLineNum;lineCount++){
     for(let spaceCount=1;spaceCount<=totalLineNum-lineCount;spaceCount++){
         lineValue+=' ';
     }
+
     // loop for *(star)
     for(let starCount=1;starCount<=2*lineCount -1;starCount++){
         lineValue+='*';
