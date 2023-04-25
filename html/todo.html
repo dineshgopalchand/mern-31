@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo Lost</title>
+    <link
+      rel="stylesheet"
+      href="./node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
+    <style>
+      .todo-detail {
+        flex-grow: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Todo List</h2>
+      <form onsubmit="addNewTodo(event)">
+        <div class="form-group row">
+          <div class="col-10">
+            <input
+              type="text"
+              class="form-control"
+              name="newTodo"
+              placeholder="Add new todo"
+            />
+          </div>
+          <div class="col">
+            <button class="btn btn-primary w-100">Add</button>
+          </div>
+        </div>
+      </form>
+      <ul class="list-group list-group-flush todo-list mt-3" id="todoList"></ul>
+    </div>
+    <script>
+      const getTodoFromLocalStorage = JSON.parse(localStorage.getItem("todo"));
+      let todoList = getTodoFromLocalStorage || [];
+
+      const todoListEle = document.getElementById("todoList");
+      //   const todoListEle=document.getElementsByClassName('todo-list')[0];
+      //   todoList.forEach((item) => {
+      //     const todoEle = document.createElement("li");
+      //     // todoEle.setAttribute('class','list-group-item');
+      //     todoEle.classList.add("list-group-item");
+      //     todoEle.innerHTML = item.todo;
+      //     todoListEle.appendChild(todoEle);
+      //   });
+      function showTodoList() {
+        todoListEle.innerHTML = "";
+        const todoListElements = todoList.map((item) => {
+          const todoEle = document.createElement("li");
+          todoEle.classList.add("list-group-item");
+          todoEle.classList.add("d-flex");
+          const todoTextElement = document.createElement("div");
+          todoTextElement.setAttribute("class", "p-2 todo-detail");
+
+          todoTextElement.innerHTML = item.todo;
+          const deleteButton = document.createElement("button");
+          deleteButton.setAttribute("class", "p-2 btn btn-danger");
+          deleteButton.innerText = "Delete";
+          deleteButton.setAttribute("data-id", item.id);
+          deleteButton.addEventListener("click", deleteTodoFn);
+
+          todoEle.append(todoTextElement, deleteButton);
+          return todoEle;
+        });
+        todoListEle.append(...todoListElements);
+      }
+      showTodoList();
+      function deleteTodoFn(event) {
+        const deleteId = event.target.getAttribute("data-id");
+        todoList = todoList.filter((todo) => todo.id != deleteId);
+        // console.log(todoList);
+        showTodoList();
+        saveTodoInStorage();
+      }
+      function addNewTodo(e) {
+        e.preventDefault();
+        const inputEle = document.getElementsByName("newTodo")[0];
+        const newTodoVal = inputEle.value;
+        // console.log(newTodoVal);
+        // const newTodo=e.target
+        todoList.push({
+          id: Date.now(),
+          todo: newTodoVal,
+          completed: false,
+          userId: 1,
+        });
+        saveTodoInStorage();
+        // console.log(todoList);
+        showTodoList();
+        inputEle.value = "";
+      }
+      function saveTodoInStorage(){
+        localStorage.setItem("todo", JSON.stringify(todoList));
+      }
+    </script>
+  </body>
+</html>
