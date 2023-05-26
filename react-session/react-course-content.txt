@@ -1,4 +1,4 @@
-> Environment and project setup 
+> Environment and project setup  - Done
 > Introducing JSX  
 > Rendering Elements  
 > Components and Props  
