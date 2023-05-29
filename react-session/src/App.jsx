@@ -1,12 +1,11 @@
-import CourseDetail from './CourseDetail';
-import CourseDetails from './CourseDetails';
+import CourseList from './CourseList';
+import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <h2>React Session.</h2>
-      <CourseDetail/>
-      <CourseDetails/>
+      {/* <h2>React Session.</h2> */}
+      <CourseList/>
     </div>
   );
 }
