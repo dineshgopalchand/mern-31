@@ -1,57 +1,45 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Courses from "./Courses";
+import { courses } from "./data/course-data";
 
 const CourseList = () => {
   const title = "Courses List";
-  const courseList = [
-    {
-      id: 1,
-      name: "HTML 5",
-      details: "This is HTML course",
-    },
-    {
-      id: 2,
-      name: "CSS",
-      details: "This is CSS course",
-    },
-    {
-      id: 3,
-      name: "Javascript",
-      details: "This is Javascript course",
-    },
-    {
-      id: 4,
-      name: "React JS",
-      details: "This is React JS course",
-    },
-    {
-      id: 5,
-      name: "Angular ",
-      details: "This is Angular course",
-    },
-    {
-      id: 6,
-      name: "Nodejs",
-      details: "This is Nodejs course",
-    },
-    {
-      id: 7,
-      name: "MongoDB",
-      details: "This is MongoDB course.",
-    },
-  ];
-  const courseListEle = courseList.map((course) => {
-    return <Courses course={course} key={course.id} />;
+  const [courseList, setCourseList] = useState(courses);
+  console.log("rendered");
+  useEffect(() => {
+    console.log("inside effect-it will run on each change");
   });
+  useEffect(() => {
+    console.log("inside effect-it will run only once ");
+    setTimeout(() => {
+      const newCourse = {
+        id: Date.now(),
+        name: "Git",
+        details: "this is git course",
+      };
+      setCourseList((prev) => {
+        console.log("course updated");
+        return [...prev, newCourse];
+      });
+    }, 2000);
+    return () => {
+      console.log("it will run at the end");
+    };
+  }, []);
+  useEffect(() => {
+    console.log(
+      "inside effect-it will run again and again when value of dep will change "
+    );
+  }, [courseList]);
+
   return (
     <div>
       <h2>{title}</h2>
       <hr />
       <div>This is a course details block</div>
-      {/* {courseList.map((course) => {
-        return <Courses course={course} />;
-      })} */}
-      {courseListEle}
+      {courseList.map((course) => {
+        return <Courses course={course} key={course.id} />;
+      })}
     </div>
   );
 };
