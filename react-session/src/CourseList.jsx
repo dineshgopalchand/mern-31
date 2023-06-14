@@ -5,12 +5,8 @@ import { courses } from "./data/course-data";
 const CourseList = () => {
   const title = "Courses List";
   const [courseList, setCourseList] = useState(courses);
-  console.log("rendered");
+
   useEffect(() => {
-    console.log("inside effect-it will run on each change");
-  });
-  useEffect(() => {
-    console.log("inside effect-it will run only once ");
     setTimeout(() => {
       const newCourse = {
         id: Date.now(),
@@ -26,11 +22,6 @@ const CourseList = () => {
       console.log("it will run at the end");
     };
   }, []);
-  useEffect(() => {
-    console.log(
-      "inside effect-it will run again and again when value of dep will change "
-    );
-  }, [courseList]);
 
   return (
     <div>
@@ -41,6 +32,7 @@ const CourseList = () => {
         return <Courses course={course} key={course.id} />;
       })}
     </div>
+    
   );
 };
 

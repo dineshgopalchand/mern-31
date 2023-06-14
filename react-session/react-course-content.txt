@@ -2,7 +2,7 @@
 > Introducing JSX   - Done
 > Rendering Elements   - Done
 > Components and Props  - Done 
-> State(useState) and Lifecycle  
+> State(useState) and Lifecycle  - Done
 > Handling Events 
 > Conditional Rendering  
 > Lists and Keys  - Done
@@ -12,7 +12,7 @@
     >>Styled Component 
     >>React css module 
 >Refs(useRef)  
->useEffect  
+>useEffect   - Done
 >Fetch and Axios  
 >Portals  
 >useReducer 

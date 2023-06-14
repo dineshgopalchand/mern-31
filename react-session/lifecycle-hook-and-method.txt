@@ -1,0 +1,58 @@
+Mounting phase
+
+constructor(){
+// statement
+
+}
+getDerivedStateFromProps(){ // it will run with initial props as well as when props value will change
+// statement
+}
+render() {
+	return <></>;
+}
+componentDidMount(){
+// document.getElementById('someid').focus()
+}
+
+
+updating phase
+
+getDerivedStateFromProps()
+shouldComponentUpdate(){
+	
+}
+render()
+getSnapshotBeforeUpdate()
+componentDidUpdate(){
+
+}
+
+
+
+unmounting phase
+
+componentWillUnmount()
+
+
+
+useEffect(()=>{
+// it will run on each change(props/state) (updating)
+
+return ()=>{
+
+}
+
+})
+
+useEffect(()=>{
+// it will run at the begining stage(mounting)
+
+return ()=>{
+// it will trigger at the end(unmounting phase)
+}
+},[])
+
+useEffect(()=>{
+// it will run again and again as soon as value of dep1/dep2 will change (updating)
+
+},[dep1,dep2])
