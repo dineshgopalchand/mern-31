@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Courses from "./Courses";
 import { courses } from "./data/course-data";
+import AddCourse from "./AddCourse";
 
 const CourseList = () => {
   const title = "Courses List";
@@ -15,11 +16,11 @@ const CourseList = () => {
     };
   }, []);
 
-  function addNewCourse() {
+  function addNewCourse(title,desc) {
     const newCourse = {
       id: Date.now(),
-      name: "Git",
-      details: "this is git course",
+      name: title,
+      details: desc,
     };
     setCourseList((prev) => {
       console.log("course updated");
@@ -30,10 +31,19 @@ const CourseList = () => {
   return (
     <div>
       <h2>{title}</h2>
-      <button onClick={(e)=>{
-        console.log(e);
-        addNewCourse()
-        }}>Add new</button>
+      <button
+        className="btn btn-primary"
+        onClick={(e) => {
+          console.log(e);
+          // addNewCourse();
+        }}
+      >
+        Add New
+      </button>
+      <div className="m-2">
+        <AddCourse addCourse={addNewCourse} />
+      </div>
+
       <hr />
       <div>This is a course details block</div>
       {courseList.map((course) => {
