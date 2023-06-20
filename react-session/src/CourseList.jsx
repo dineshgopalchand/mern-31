@@ -32,28 +32,15 @@ const CourseList = () => {
         {title}{" "}
         <span style={{ fontSize: "0.55em" }}> ({courseList.length})</span>
       </h2>
-      {!showForm ? (
-        <button
-          className="btn btn-primary"
-          onClick={(e) => {
-            console.log(e);
-            setShowForm(true);
-            // addNewCourse();
-          }}
-        >
-          Add New
-        </button>
-      ) : (
-        <button
-          className="btn btn-info"
-          onClick={(e) => {
-            setShowForm(false);
-            // addNewCourse();
-          }}
-        >
-          Close Form
-        </button>
-      )}
+      <button
+        className={`btn btn-${showForm ? "info" : "primary"}`}
+        onClick={(e) => {
+          setShowForm((prev) => !prev);
+        }}
+      >
+        {showForm ? "Close Form" : "Add New"}
+      </button>
+
       {showForm ? (
         <div className="m-2">
           <AddCourse addCourse={addNewCourse} />
