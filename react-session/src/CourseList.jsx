@@ -21,8 +21,9 @@ const CourseList = () => {
       details: desc,
     };
     setCourseList((prev) => {
-      // console.log("course updated");
+      setShowForm(false);
       return [newCourse, ...prev];
+    
     });
   }
 

@@ -3,11 +3,11 @@
 > Rendering Elements   - Done
 > Components and Props  - Done 
 > State(useState) and Lifecycle  - Done
-> Handling Events 
-> Conditional Rendering  
+> Handling Events - Done
+> Conditional Rendering  - DOne
 > Lists and Keys  - Done
 > Forms  
-> Lifting State Up 
+> Lifting State Up - Done
 > Styling - 
     >>Styled Component 
     >>React css module 
