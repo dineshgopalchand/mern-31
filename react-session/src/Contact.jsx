@@ -5,41 +5,49 @@ const formInitVal = {
   fullName: "",
   email: "",
   phone: "",
-  topic: "",
-  gender: "",
+  topic: "1",
+  gender: "m",
   website: "",
   details: "",
 };
+const gender = [
+  {
+    value: "m",
+    label: "Male",
+  },
+  {
+    value: "f",
+    label: "Female",
+  },
+  {
+    value: "o",
+    label: "Others",
+  },
+];
 const Contact = () => {
-  const gender = [
-    {
-      value: "m",
-      label: "Male",
-    },
-    {
-      value: "F",
-      label: "Female",
-    },
-    {
-      value: "o",
-      label: "Others",
-    },
-  ];
   const [formVal, setFormVal] = useState(formInitVal);
-  const formHandler=(e)=>{
+  const [validated, setValidated] = useState(false);
+  const formHandler = (e) => {
     e.preventDefault();
+    const form = e.currentTarget;
+    if (form.checkValidity() === false) {
+      e.stopPropagation();
+    }
+    setValidated(true);
     console.log(formVal);
-  }
+  };
   return (
     <div>
       <h3>Contact Form</h3>
       <hr />
-      <Form onSubmit={formHandler}>
+      <Form onSubmit={formHandler} validated={validated}>
         <Form.Group className="mb-3">
           <Form.Label>Full Name</Form.Label>
           <Form.Control
             type="text"
             placeholder="Full Name"
+            required
+            minLength={3}
             value={formVal.fullName}
             onChange={(e) => {
               setFormVal((prev) => {
@@ -84,11 +92,12 @@ const Contact = () => {
                   name="gender"
                   value={g.value}
                   label={g.label}
-                  // onChange={(e) => {
-                  //   setFormVal((prev) => {
-                  //     return { ...prev, gender: e.target.value };
-                  //   });
-                  // }}
+                  checked={formVal.gender && formVal.gender === g.value}
+                  onChange={(e) => {
+                    setFormVal((prev) => {
+                      return { ...prev, gender: e.target.value };
+                    });
+                  }}
                 />
               </Col>
             ))}
@@ -110,18 +119,18 @@ const Contact = () => {
         </Form.Group>
         <Form.Select
           aria-label="Select Topic"
-          // value={formVal.topic}
-          // onChange={(e) => {
-          //   setFormVal((prev) => {
-          //     return { ...prev, topic: e.target.value };
-          //   });
-          // }}
+          value={formVal.topic}
+          onChange={(e) => {
+            setFormVal((prev) => {
+              return { ...prev, topic: e.target.value };
+            });
+          }}
         >
-          <option>Open this select menu</option>
+          <option>Select Category</option>
           <option value="1">Education</option>
           <option value="2">Entertainment</option>
           <option value="3">Sports</option>
-          <option value="3">Other</option>
+          <option value="4">Other</option>
         </Form.Select>
         <Form.Group className="mb-3">
           <Form.Label>Details</Form.Label>
@@ -136,8 +145,11 @@ const Contact = () => {
             }}
           />
         </Form.Group>
-        <Button variant="primary"  type="submit">Submit</Button>
+        <Button variant="primary" type="submit">
+          Submit
+        </Button>
       </Form>
+      {JSON.stringify(formVal)}
     </div>
   );
 };
