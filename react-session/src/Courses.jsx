@@ -1,12 +1,23 @@
 import React from "react";
+const courseCard = {
+  border: "1px solid gray",
+  borderRadius: "5px",
+  marginBottom: "2px",
+};
 
 const Courses = (props) => {
-//   console.log(props);
-  // const courseName=props.courseName;
+
   const { course } = props; // destructing props
-//   console.log(course);
+
   return (
-    <div>
+    <div className="course-item" style={courseCard}>
+    {/* <div className="course-item" style={
+      {
+        border:'1px solid gray',
+        borderRadius:"5px",
+        marginBottom:"2px"
+      }
+    }> */}
       <h3>{course?.name}</h3>
       <p>{course?.details}</p>
     </div>

@@ -6,7 +6,7 @@
 > Handling Events - Done
 > Conditional Rendering  - DOne
 > Lists and Keys  - Done
-> Forms  
+> Forms  - Done
 > Lifting State Up - Done
 > Styling - 
     >>Styled Component 

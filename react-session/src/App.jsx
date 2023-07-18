@@ -9,9 +9,9 @@ function App() {
     <div className="App">
       <Clock/>
       {/* <h2>React Session.</h2> */}
-      {/* <CourseList/> */}
+      <CourseList/>
       {/* <Contact/> */}
-      <ContactForm/>
+      {/* <ContactForm/> */}
     </div>
   );
 }
