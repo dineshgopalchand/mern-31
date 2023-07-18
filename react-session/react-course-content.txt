@@ -8,7 +8,7 @@
 > Lists and Keys  - Done
 > Forms  - Done
 > Lifting State Up - Done
-> Styling - 
+> Styling -  Done
     >>Styled Component 
     >>React css module 
 >Refs(useRef)  

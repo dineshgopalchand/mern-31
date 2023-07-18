@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Courses from "./Courses";
 import { courses } from "./data/course-data";
 import AddCourse from "./AddCourse";
-import SuccessButton from "./styled-component/SuccessButton";
+// import SuccessButton from "./styled-component/SuccessButton";
 
 const CourseList = () => {
   const title = "Courses List";
@@ -43,7 +43,7 @@ const CourseList = () => {
         {showForm ? "Close Form" : "Add New"}
       </button>
 
-      <SuccessButton>styled button</SuccessButton>
+      {/* <SuccessButton>styled button</SuccessButton> */}
 
       {showForm ? (
         <div className="m-2">
