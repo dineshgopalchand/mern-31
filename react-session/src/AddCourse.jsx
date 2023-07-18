@@ -1,7 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 const intiFormData = { title: "", desc: "" };
 const AddCourse = ({ addCourse }) => {
   const [formData, setFormData] = useState(intiFormData);
+  const titleRef = useRef(null);
+  useEffect(() => {
+    console.log(titleRef.current);
+    titleRef.current.focus();
+  }, [titleRef]);
   return (
     <form
       onSubmit={(event) => {
@@ -16,6 +21,7 @@ const AddCourse = ({ addCourse }) => {
           <div className="input-group">
             <input
               type="text"
+              ref={titleRef}
               value={formData.title}
               className="form-control"
               onChange={(e) => {
