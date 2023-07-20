@@ -1,31 +1,51 @@
 import React, { useEffect, useState } from "react";
 import Courses from "./Courses";
-import { courses } from "./data/course-data";
 import AddCourse from "./AddCourse";
-// import SuccessButton from "./styled-component/SuccessButton";
-
 const CourseList = () => {
   const title = "Courses List";
-  const [courseList, setCourseList] = useState(courses);
+  const [courseList, setCourseList] = useState([]);
   const [showForm, setShowForm] = useState(false);
 
   useEffect(() => {
-    return () => {
-      console.log("it will run at the end");
-    };
+    fetch("http://localhost:4110/courses")
+      .then((res) => res.json())
+      .then((coursesList) => {
+        setCourseList(coursesList);
+      });
   }, []);
 
   function addNewCourse(title, desc) {
     const newCourse = {
-      id: Date.now(),
       name: title,
       details: desc,
     };
-    setCourseList((prev) => {
-      setShowForm(false);
-      return [newCourse, ...prev];
-    
-    });
+    fetch("http://localhost:4110/courses", {
+      method: "POST",
+      body: JSON.stringify(newCourse),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    })
+      .then((res) => {
+        if (res.ok) {
+          return res;
+        } else {
+          return Promise.reject({
+            message: res.statusText,
+            status: res.status,
+          });
+        }
+      })
+      .then((res) => res.json())
+      .then((courses) => {
+        setCourseList((prev) => {
+          setShowForm(false);
+          return [courses, ...prev];
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 
   return (
@@ -42,9 +62,6 @@ const CourseList = () => {
       >
         {showForm ? "Close Form" : "Add New"}
       </button>
-
-      {/* <SuccessButton>styled button</SuccessButton> */}
-
       {showForm ? (
         <div className="m-2">
           <AddCourse addCourse={addNewCourse} />
