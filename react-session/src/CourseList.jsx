@@ -2,21 +2,20 @@ import React, { useEffect, useState } from "react";
 import Courses from "./Courses";
 import AddCourse from "./AddCourse";
 import useFetch from "./hooks/useFetch";
-const COURSE_URL="http://localhost:4110/courses"
-
-
+import axios from "axios";
+const COURSE_URL = "http://localhost:4110/courses";
 
 const CourseList = () => {
   const title = "Courses List";
   const [courseList, setCourseList] = useState([]);
   const [showForm, setShowForm] = useState(false);
-  const [URL,setURL]=useState(COURSE_URL);
-  const [options,setOptions]=useState({});
+  const [URL, setURL] = useState(COURSE_URL);
+  const [options, setOptions] = useState({});
 
-  const { data, loading, error }=useFetch(URL,options);
+  const { data, loading, error } = useFetch(URL, options);
   console.log({ data, loading, error });
   useEffect(() => {
-    setCourseList(data||[]);
+    setCourseList(data || []);
   }, [data]);
 
   function addNewCourse(title, desc) {
@@ -24,54 +23,55 @@ const CourseList = () => {
       name: title,
       details: desc,
     };
-    fetch(COURSE_URL, {
+
+    // axios
+    //   .post(COURSE_URL, JSON.stringify(newCourse), {
+    //     headers: {
+    //       "Content-type": "application/json; charset=UTF-8",
+    //     },
+    //   })
+    axios({
       method: "POST",
-      body: JSON.stringify(newCourse),
+      url: COURSE_URL,
+      data: newCourse,
       headers: {
         "Content-type": "application/json; charset=UTF-8",
       },
     })
-      .then((res) => {
-        if (res.ok) {
-          return res;
-        } else {
-          return Promise.reject({
-            message: res.statusText,
-            status: res.status,
-          });
-        }
-      })
-      .then((res) => res.json())
-      .then((courses) => {
+      .then((res) => res.data)
+      .then((course) => {
         setCourseList((prev) => {
           setShowForm(false);
-          return [courses, ...prev];
+          return [course, ...prev];
         });
       })
       .catch((err) => {
         console.log(err);
       });
   }
-  const deleteCourse=(id)=>{
+  const deleteCourse = (id) => {
     fetch(`${COURSE_URL}/${id}`, {
       method: "DELETE",
-    }).then(res=>{
-      if (res.ok) {
-        return res;
-      } else {
-        return Promise.reject({
-          message: "Course don't exits",
-          status: res.status,
-        });
-      }
-    }).then(res=>{
-      setCourseList((prev) => {
-        return prev.filter(course=>course.id!==id);
-      });
-    }).catch(err=>{
-      console.log(err);
     })
-  }
+      .then((res) => {
+        if (res.ok) {
+          return res;
+        } else {
+          return Promise.reject({
+            message: "Course don't exits",
+            status: res.status,
+          });
+        }
+      })
+      .then((res) => {
+        setCourseList((prev) => {
+          return prev.filter((course) => course.id !== id);
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   return (
     <div>
@@ -98,7 +98,13 @@ const CourseList = () => {
       <hr />
       <div>This is a course details block</div>
       {courseList.map((course) => {
-        return <Courses course={course} key={course.id} deleteCourse={deleteCourse} />;
+        return (
+          <Courses
+            course={course}
+            key={course.id}
+            deleteCourse={deleteCourse}
+          />
+        );
       })}
     </div>
   );
