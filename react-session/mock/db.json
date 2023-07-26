@@ -51,31 +51,6 @@
       "id": 7,
       "name": "MongoDB",
       "details": "This is MongoDB (NoSQL) course."
-    },
-    {
-      "name": "test 1",
-      "details": "some description",
-      "id": 8
-    },
-    {
-      "name": "stests",
-      "details": "sfds",
-      "id": 9
-    },
-    {
-      "name": "adfsdf",
-      "details": "adfsdfs",
-      "id": 10
-    },
-    {
-      "name": "test 3",
-      "details": "desc 3",
-      "id": 11
-    },
-    {
-      "name": "testests",
-      "details": "sdfsdfds",
-      "id": 12
     }
   ]
 }

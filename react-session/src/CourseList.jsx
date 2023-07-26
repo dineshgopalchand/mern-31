@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Courses from "./Courses";
 import AddCourse from "./AddCourse";
+
 const CourseList = () => {
   const title = "Courses List";
   const [courseList, setCourseList] = useState([]);
@@ -47,6 +48,26 @@ const CourseList = () => {
         console.log(err);
       });
   }
+  const deleteCourse=(id)=>{
+    fetch(`http://localhost:4110/courses/${id}`, {
+      method: "DELETE",
+    }).then(res=>{
+      if (res.ok) {
+        return res;
+      } else {
+        return Promise.reject({
+          message: "Course don't exits",
+          status: res.status,
+        });
+      }
+    }).then(res=>{
+      setCourseList((prev) => {
+        return prev.filter(course=>course.id!==id);
+      });
+    }).catch(err=>{
+      console.log(err);
+    })
+  }
 
   return (
     <div>
@@ -73,7 +94,7 @@ const CourseList = () => {
       <hr />
       <div>This is a course details block</div>
       {courseList.map((course) => {
-        return <Courses course={course} key={course.id} />;
+        return <Courses course={course} key={course.id} deleteCourse={deleteCourse} />;
       })}
     </div>
   );
