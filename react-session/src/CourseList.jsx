@@ -1,26 +1,30 @@
 import React, { useEffect, useState } from "react";
 import Courses from "./Courses";
 import AddCourse from "./AddCourse";
+import useFetch from "./hooks/useFetch";
+const COURSE_URL="http://localhost:4110/courses"
+
+
 
 const CourseList = () => {
   const title = "Courses List";
   const [courseList, setCourseList] = useState([]);
   const [showForm, setShowForm] = useState(false);
+  const [URL,setURL]=useState(COURSE_URL);
+  const [options,setOptions]=useState({});
 
+  const { data, loading, error }=useFetch(URL,options);
+  console.log({ data, loading, error });
   useEffect(() => {
-    fetch("http://localhost:4110/courses")
-      .then((res) => res.json())
-      .then((coursesList) => {
-        setCourseList(coursesList);
-      });
-  }, []);
+    setCourseList(data||[]);
+  }, [data]);
 
   function addNewCourse(title, desc) {
     const newCourse = {
       name: title,
       details: desc,
     };
-    fetch("http://localhost:4110/courses", {
+    fetch(COURSE_URL, {
       method: "POST",
       body: JSON.stringify(newCourse),
       headers: {
@@ -49,7 +53,7 @@ const CourseList = () => {
       });
   }
   const deleteCourse=(id)=>{
-    fetch(`http://localhost:4110/courses/${id}`, {
+    fetch(`${COURSE_URL}/${id}`, {
       method: "DELETE",
     }).then(res=>{
       if (res.ok) {
