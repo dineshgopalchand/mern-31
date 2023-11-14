@@ -1,26 +1,24 @@
+import { useContext } from "react";
 import { TaskContext } from "../../store/task";
 
 export const TaskList = () => {
+  const { tasks, deleteTask } = useContext(TaskContext);
   return (
-    <TaskContext.Consumer>
-      {(tCtx) => {
-        return <div className="task-list">
-          <ul>
-            {tCtx.tasks.map((task) => {
-              return (
-                <li
-                  key={task.id}
-                  onClick={() => {
-                    tCtx.deleteTask(task.id);
-                  }}
-                >
-                  {task.title}
-                </li>
-              );
-            })}
-          </ul>
-        </div>;
-      }}
-    </TaskContext.Consumer>
+    <div className="task-list">
+      <ul>
+        {tasks.map((task) => {
+          return (
+            <li
+              key={task.id}
+              onClick={() => {
+                deleteTask(task.id);
+              }}
+            >
+              {task.title}
+            </li>
+          );
+        })}
+      </ul>
+    </div>
   );
 };
