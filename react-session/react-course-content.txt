@@ -4,7 +4,7 @@
 > Components and Props  - Done 
 > State(useState) and Lifecycle  - Done
 > Handling Events - Done
-> Conditional Rendering  - DOne
+> Conditional Rendering  - Done
 > Lists and Keys  - Done
 > Forms  - Done
 > Lifting State Up - Done
