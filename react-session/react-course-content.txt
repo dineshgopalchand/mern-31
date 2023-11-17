@@ -16,6 +16,6 @@
 >Fetch and Axios  - Done
 >Portals  
 >useReducer 
->useContext
+>useContext - Done
 >Router
 >Redux
