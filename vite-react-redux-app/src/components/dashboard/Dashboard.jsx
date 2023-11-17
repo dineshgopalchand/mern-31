@@ -2,8 +2,9 @@ import { useContext } from "react";
 import { TaskContext } from "../../store/task";
 import Tasks from "../tasks/Tasks";
 import "./Dashboard.css";
+import Counter from "./../counter/Counter";
 export const Dashboard = () => {
-  const {tasks} = useContext(TaskContext);
+  const { tasks } = useContext(TaskContext);
   return (
     <div className="dashboard">
       <h2 style={{ textAlign: "center" }}>
@@ -11,6 +12,7 @@ export const Dashboard = () => {
       </h2>
       <hr />
       <Tasks />
+      <Counter />
     </div>
   );
 };

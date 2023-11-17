@@ -4,9 +4,11 @@ import TaskContextProvider from "./context/TaskContextProvider";
 
 function App() {
   return (
-    <TaskContextProvider>
-      <Dashboard />
-    </TaskContextProvider>
+    <>
+      <TaskContextProvider>
+        <Dashboard />
+      </TaskContextProvider>
+    </>
   );
 }
 
