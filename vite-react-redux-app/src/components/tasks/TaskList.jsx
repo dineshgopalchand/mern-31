@@ -1,8 +1,9 @@
 import { useContext } from "react";
 import { TaskContext } from "../../store/task";
+import { TASK } from "./../../constant/task";
 
 export const TaskList = () => {
-  const { tasks, deleteTask } = useContext(TaskContext);
+  const { tasks, dispatchTask } = useContext(TaskContext);
   return (
     <div className="task-list">
       <ul>
@@ -11,7 +12,7 @@ export const TaskList = () => {
             <li
               key={task.id}
               onClick={() => {
-                deleteTask(task.id);
+                dispatchTask({ type: TASK.DELETE, payload: task.id });
               }}
             >
               {task.title}

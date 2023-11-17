@@ -1,12 +1,15 @@
 import { useContext } from "react";
 import { TaskContext } from "../../store/task";
+import { TASK } from "../../constant/task";
 
 export const CreateTask = () => {
-  const { addTask } = useContext(TaskContext);
+  const { dispatchTask } = useContext(TaskContext);
   return (
     <button
       onClick={() => {
-        addTask();
+        dispatchTask({
+          type: TASK.ADD,
+        });
       }}
     >
       Create task
