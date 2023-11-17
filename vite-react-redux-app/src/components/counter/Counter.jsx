@@ -1,12 +1,13 @@
 import { useReducer } from "react";
+import { COUNTER } from "../../constant/counter";
 const initialCounter = 0;
 const counterReducer = (state, action) => {
   switch (action) {
-    case "increase":
+    case COUNTER.INCREASE:
       return state + 1;
-    case "decrease":
+    case COUNTER.DECREASE:
       return state - 1;
-    case "reset":
+    case COUNTER.RESET:
       return initialCounter;
     default:
       return state;
@@ -17,12 +18,15 @@ const Counter = () => {
   return (
     <div>
       <h3>Counter</h3>
-      <button onClick={() => dispatch("increase")}>+</button>
+      <button onClick={() => dispatch(COUNTER.INCREASE)}>+</button>
       <input type="text" value={counterVal} readOnly />
-      <button onClick={() => dispatch("decrease")} disabled={counterVal == 0}>
+      <button
+        onClick={() => dispatch(COUNTER.DECREASE)}
+        disabled={counterVal == 0}
+      >
         -
       </button>
-      <button onClick={() => dispatch("reset")}>Reset</button>
+      <button onClick={() => dispatch(COUNTER.RESET)}>Reset</button>
     </div>
   );
 };
