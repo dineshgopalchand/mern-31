@@ -6,7 +6,7 @@ import Counter from "./../counter/Counter";
 export const Dashboard = () => {
   const { tasks } = useContext(TaskContext);
   return (
-    <div className="dashboard">
+    <div>
       <h2 style={{ textAlign: "center" }}>
         Dashboard <small> (T:{tasks.length}) </small>
       </h2>
